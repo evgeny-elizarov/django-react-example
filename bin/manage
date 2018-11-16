@@ -1,0 +1,9 @@
+#!/bin/bash
+TMP=$PWD
+DIRECTORY=$(cd `dirname $0` && pwd)
+
+export SSH_PRIVATE_KEY=`cat ~/.ssh/id_rsa`
+
+cd $DIRECTORY/..
+docker-compose exec web python3 app/manage.py "$@"
+cd $PDW
